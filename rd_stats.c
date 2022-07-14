@@ -449,6 +449,10 @@ void compute_ext_disk_stats(struct stats_disk *sdc, struct stats_disk *sdp,
 			    unsigned long long itv, struct ext_disk_stats *xds)
 {
 	xds->util  = S_VALUE(sdp->tot_ticks, sdc->tot_ticks, itv);
+	if (sdc->nr_ios == sdp->nr_ios
+			&& sdc->nr_ios_pgr != 0 && sdc->nr_ios_pgr == sdp->nr_ios_pgr) {
+		xds->util = 1000.00;
+	}
 	/*
 	 * Kernel gives ticks already in milliseconds for all platforms
 	 * => no need for further scaling.

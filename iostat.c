@@ -1497,6 +1497,9 @@ void write_ext_stat(unsigned long long itv, int fctr, int hpart,
 		sdc.dc_sect   = ioi->dc_sectors;
 		sdp.dc_sect   = ioj->dc_sectors;
 
+		sdc.nr_ios_pgr = ioi->ios_pgr;
+		sdp.nr_ios_pgr = ioj->ios_pgr;
+
 		compute_ext_disk_stats(&sdc, &sdp, itv, &xds);
 	}
 

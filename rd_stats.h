@@ -288,6 +288,7 @@ struct stats_disk {
 	unsigned int	   minor;
 	unsigned int	   dc_ticks;
 	unsigned int	   part_nr;
+	unsigned int	   nr_ios_pgr;
 };
 
 #define STATS_DISK_SIZE	(sizeof(struct stats_disk))
